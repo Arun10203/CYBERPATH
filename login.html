@@ -40,18 +40,23 @@
     </style>
 </head>
 <body>
-    <form id="myform" action="index.html">
-        <label for="name">Name:</label>
-        <input type="text" id="name" onkeyup="validateName()" required>
-        <div class="message" id="nameMessage"></div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" onkeyup="validateEmail()" required>
-        <div class="message" id="emailMessage"></div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" onkeyup="validatePassword()" required>
-        <div class="message" id="passwordMessage"></div>
-        <input type="submit" value="Submit form">
-    </form>
+    <section id="login-form">
+        <form id="loginForm" action="index.html" method="POST" onsubmit="return handleLogin(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" onkeyup="validateName()" required>
+            <div class="message" id="nameMessage"></div>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" onkeyup="validateEmail()" required>
+            <div class="message" id="emailMessage"></div>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" onkeyup="validatePassword()" required>
+            <div class="message" id="passwordMessage"></div>
+
+            <input type="submit" value="Login">
+        </form>
+    </section>
 
     <script src="./form.js"></script>
 
