@@ -43,5 +43,15 @@
     <footer>
         <p>&copy; 2024 CYBERPATH. All rights reserved.</p>
     </footer>
+    <script>
+        
+        window.onload = function() {
+  // Check if user is logged in by sessionStorage flag
+        if (sessionStorage.getItem('loggedIn') !== 'true') {
+    // If not logged in, redirect to login page
+             window.location.href = 'login.html';
+         }
+        };
+    </script>
 </body>
 </html>
