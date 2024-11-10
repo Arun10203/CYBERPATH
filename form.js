@@ -1,67 +1,72 @@
-function validateName(){
+function validateName() {
     const name = document.getElementById("name").value;
     const nameInput = document.getElementById("name");
     const nameMessage = document.getElementById("nameMessage");
-    if(name.length >= 3){
+
+    if (name.length >= 3) {
         nameInput.style.borderColor = "green";
-        nameMessage.textContent="Name looks good";
+        nameMessage.textContent = "Name looks good";
         nameMessage.style.color = "green";
         return true;
-    }
-
-    else{
+    } else {
         nameInput.style.borderColor = "red";
-        nameMessage.textContent="Name should atleast be of 3 characters";
+        nameMessage.textContent = "Name should be at least 3 characters";
         nameMessage.style.color = "red";
         return false;
     }
 }
 
-function validateEmail(){
+function validateEmail() {
     const email = document.getElementById("email").value;
     const emailInput = document.getElementById("email");
     const emailMessage = document.getElementById("emailMessage");
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if(emailPattern.test(email)){
+
+    if (emailPattern.test(email)) {
         emailInput.style.borderColor = "green";
-        emailMessage.textContent="Valid email";
+        emailMessage.textContent = "Valid email";
         emailMessage.style.color = "green";
         return true;
-    }
-
-    else{
+    } else {
         emailInput.style.borderColor = "red";
-        emailMessage.textContent="Enter a valid email address";
+        emailMessage.textContent = "Enter a valid email address";
         emailMessage.style.color = "red";
         return false;
     }
 }
 
-function validatePassword(){
+function validatePassword() {
     const password = document.getElementById("password").value;
     const passwordInput = document.getElementById("password");
     const passwordMessage = document.getElementById("passwordMessage");
-    if(password.length >= 6){
+
+    if (password.length >= 6) {
         passwordInput.style.borderColor = "green";
-        passwordMessage.textContent="Strong password";
+        passwordMessage.textContent = "Strong password";
         passwordMessage.style.color = "green";
         return true;
-    }
-
-    else{
+    } else {
         passwordInput.style.borderColor = "red";
-        passwordMessage.textContent="Password should be atleast of 6 characters";
+        passwordMessage.textContent = "Password should be at least 6 characters";
         passwordMessage.style.color = "red";
         return false;
     }
 }
 
-document.getElementById("myform").addEventListener("submit",function(event){
+// Handle the login and set the 'loggedIn' status in sessionStorage
+function handleLogin(event) {
+    event.preventDefault(); // Prevent form submission
+
     const isvalidName = validateName();
     const isvalidEmail = validateEmail();
     const isvalidPassword = validatePassword();
-    if(!isvalidName || !isvalidEmail || !isvalidPassword){
-        event.preventDefault();
-    }
 
-});
+    if (isvalidName && isvalidEmail && isvalidPassword) {
+        // Save login status in sessionStorage
+        sessionStorage.setItem('loggedIn', 'true');
+        // Redirect to index.html after successful login
+        window.location.href = "index.html";
+    } else {
+        alert("Please fix the errors before submitting.");
+    }
+}
