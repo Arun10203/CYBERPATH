@@ -56,3 +56,8 @@ footer {
     bottom: 0; /* Stick to the bottom */
     width: 100%; /* Full width for footer */
 }
+nav ul li:hover{
+    background-color: #0056b3;
+    border-radius: 8px;
+    padding:  5px;
+}
